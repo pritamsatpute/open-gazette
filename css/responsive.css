@@ -35,7 +35,6 @@
     display: inline-flex;
   }
 
-
   /* Hero */
   .hero {
     padding-block: var(--space-8);
@@ -61,12 +60,10 @@
     aspect-ratio: 16 / 10;
   }
 
-
   /* Latest stories */
   .article-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 
   /* Categories */
   .category-layout {
@@ -90,7 +87,6 @@
     padding-top: 0;
   }
 
-
   /* Trending */
   .trending-layout {
     grid-template-columns: 1fr;
@@ -100,11 +96,16 @@
   .trending-intro__text {
     max-width: 600px;
   }
+
+  /* Newsletter */
+  .newsletter {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
 }
 
 /* Mobile */
 @media (max-width: 767px) {
-
   /* Header */
   .site-header__logo {
     height: 26px;
@@ -120,7 +121,6 @@
     width: 38px;
     height: 38px;
   }
-
 
   /* Hero */
   .hero {
@@ -171,7 +171,6 @@
     font-size: var(--font-size-xs);
   }
 
-
   /* Latest stories */
   .latest-stories {
     padding-block: var(--space-7);
@@ -195,7 +194,6 @@
   .article-card__title {
     font-size: var(--font-size-lg);
   }
-
 
   /* Categories */
   .category-section {
@@ -227,7 +225,6 @@
     font-size: var(--font-size-xs);
   }
 
-  
   /* Trending */
   .trending-section {
     padding-block: var(--space-7);
@@ -250,5 +247,24 @@
   .trending-article .article-meta {
     margin-top: var(--space-2);
     font-size: var(--font-size-xs);
+  }
+
+  /* Newsletter */
+  .newsletter-section {
+    padding-block: var(--space-7);
+  }
+
+  .newsletter {
+    gap: var(--space-6);
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .newsletter-form__controls {
+    flex-direction: column;
+  }
+
+  .newsletter-form__button {
+    width: 100%;
   }
 }

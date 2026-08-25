@@ -1,6 +1,7 @@
 // Open Gazette main JavaScript
 document.addEventListener("DOMContentLoaded", () => {
 
+  
   // Theme toggle
   const themeToggle = document.querySelector(".theme-toggle");
   const themeStorageKey = "open-gazette-theme";
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+
   // Mobile navigation
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNavigation = document.querySelector(".site-navigation");
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+
   // Close mobile navigation after selecting a link
   const navigationLinks = document.querySelectorAll(
     ".site-navigation__link"
@@ -58,5 +61,48 @@ document.addEventListener("DOMContentLoaded", () => {
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation menu");
     });
+  });
+
+
+  // Newsletter form
+  const newsletterForm = document.querySelector("#newsletter-form");
+  const newsletterEmail = document.querySelector("#newsletter-email");
+  const newsletterMessage = document.querySelector("#newsletter-message");
+
+  newsletterForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const emailValue = newsletterEmail.value.trim();
+
+    newsletterMessage.classList.remove("is-error", "is-success");
+
+    if (!emailValue) {
+      newsletterMessage.textContent =
+        "Please enter your email address.";
+
+      newsletterMessage.classList.add("is-error");
+
+      newsletterEmail.focus();
+
+      return;
+    }
+
+    if (!newsletterEmail.validity.valid) {
+      newsletterMessage.textContent =
+        "Please enter a valid email address.";
+
+      newsletterMessage.classList.add("is-error");
+
+      newsletterEmail.focus();
+
+      return;
+    }
+
+    newsletterMessage.textContent =
+      "Thanks for subscribing to Open Gazette.";
+
+    newsletterMessage.classList.add("is-success");
+
+    newsletterForm.reset();
   });
 });
