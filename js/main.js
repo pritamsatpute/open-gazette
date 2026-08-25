@@ -1,4 +1,62 @@
 // Open Gazette main JavaScript
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Open Gazette is ready.");
+
+  // Theme toggle
+  const themeToggle = document.querySelector(".theme-toggle");
+  const themeStorageKey = "open-gazette-theme";
+
+  const savedTheme = localStorage.getItem(themeStorageKey);
+
+  if (savedTheme === "dark") {
+    document.documentElement.setAttribute("data-theme", "dark");
+    themeToggle.setAttribute("aria-pressed", "true");
+    themeToggle.setAttribute("aria-label", "Switch to light mode");
+  }
+
+  themeToggle.addEventListener("click", () => {
+    const isDarkTheme =
+      document.documentElement.getAttribute("data-theme") === "dark";
+
+    if (isDarkTheme) {
+      document.documentElement.removeAttribute("data-theme");
+      localStorage.setItem(themeStorageKey, "light");
+
+      themeToggle.setAttribute("aria-pressed", "false");
+      themeToggle.setAttribute("aria-label", "Switch to dark mode");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem(themeStorageKey, "dark");
+
+      themeToggle.setAttribute("aria-pressed", "true");
+      themeToggle.setAttribute("aria-label", "Switch to light mode");
+    }
+  });
+
+  // Mobile navigation
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNavigation = document.querySelector(".site-navigation");
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = siteNavigation.classList.toggle("is-open");
+
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation menu" : "Open navigation menu"
+    );
+  });
+
+  // Close mobile navigation after selecting a link
+  const navigationLinks = document.querySelectorAll(
+    ".site-navigation__link"
+  );
+
+  navigationLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      siteNavigation.classList.remove("is-open");
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation menu");
+    });
+  });
 });
