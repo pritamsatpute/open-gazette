@@ -58,6 +58,11 @@
   .secondary-article__image-link {
     aspect-ratio: 16 / 10;
   }
+
+  /* Latest stories */
+  .article-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* Mobile */
@@ -125,5 +130,29 @@
   .secondary-article .article-meta {
     margin-top: var(--space-3);
     font-size: var(--font-size-xs);
+  }
+
+  /* Latest stories */
+  .latest-stories {
+    padding-block: var(--space-7);
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: var(--space-6);
+  }
+
+  .section-link {
+    font-size: var(--font-size-base);
+  }
+
+  .article-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+  }
+
+  .article-card__title {
+    font-size: var(--font-size-lg);
   }
 }
