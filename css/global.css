@@ -226,6 +226,7 @@ button {
     opacity var(--transition-fast);
 }
 
+
 /* Hero */
 .hero {
   padding-block: var(--space-10);
@@ -259,6 +260,7 @@ button {
   grid-template-columns: minmax(0, 1.6fr) minmax(320px, 1fr);
   gap: var(--space-6);
 }
+
 
 /* Main featured article */
 .featured-article {
@@ -396,6 +398,7 @@ button {
   letter-spacing: -0.02em;
 }
 
+
 /* Sections */
 .section-heading {
   display: flex;
@@ -430,6 +433,7 @@ button {
 .section-link:hover {
   color: var(--color-primary-hover);
 }
+
 
 /* Latest stories */
 .latest-stories {
@@ -501,6 +505,7 @@ button {
   margin-top: auto;
   padding-top: var(--space-5);
 }
+
 
 /* Categories */
 .category-section {
@@ -626,3 +631,70 @@ button {
   margin-top: var(--space-3);
 }
 
+
+/* Trending */
+.trending-section {
+  padding-block: var(--space-10);
+  border-top: 1px solid var(--color-border);
+}
+
+.trending-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.5fr) minmax(0, 1.5fr);
+  gap: var(--space-9);
+}
+
+/* Trending introduction */
+.trending-intro {
+  padding-top: var(--space-2);
+}
+
+.trending-intro__text {
+  max-width: 280px;
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Trending list */
+.trending-list {
+  border-top: 1px solid var(--color-border);
+}
+
+.trending-article {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr);
+  gap: var(--space-5);
+  padding-block: var(--space-5);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.trending-article__number {
+  color: var(--color-primary);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.trending-article__content {
+  min-width: 0;
+}
+
+.trending-article__title {
+  max-width: 760px;
+  margin-top: var(--space-2);
+  font-size: var(--font-size-xl);
+  letter-spacing: -0.025em;
+}
+
+.trending-article__title a {
+  transition: color var(--transition-fast);
+}
+
+.trending-article__title a:hover {
+  color: var(--color-primary);
+}
+
+.trending-article .article-meta {
+  margin-top: var(--space-3);
+}
