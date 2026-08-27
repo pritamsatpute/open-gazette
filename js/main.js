@@ -189,4 +189,118 @@ document.addEventListener("DOMContentLoaded", () => {
       newsletterForm.reset();
     });
   }
+
+  // Search functionality
+  const searchForm = document.querySelector("#search-form");
+  const searchInput = document.querySelector("#search-input");
+  const searchClear = document.querySelector("#search-clear");
+  const searchResultsList = document.querySelector(
+    "#search-results-list"
+  );
+  const searchResultsCount = document.querySelector(
+    "#search-results-count"
+  );
+  const searchEmptyState = document.querySelector(
+    "#search-empty-state"
+  );
+
+  if (
+    searchForm &&
+    searchInput &&
+    searchClear &&
+    searchResultsList &&
+    searchResultsCount &&
+    searchEmptyState
+  ) {
+    const searchResults = Array.from(
+      searchResultsList.querySelectorAll(".search-result")
+    );
+
+    const updateSearchResults = () => {
+      const searchQuery = searchInput.value
+        .trim()
+        .toLowerCase();
+
+        searchClear.hidden = searchQuery === "";
+
+      let visibleResults = 0;
+
+      searchResults.forEach((result) => {
+        const searchTitle =
+          result.dataset.searchTitle.toLowerCase();
+
+        const searchCategory =
+          result.dataset.searchCategory.toLowerCase();
+
+        const searchDescription =
+          result.dataset.searchDescription.toLowerCase();
+
+        const searchableContent = [
+          searchTitle,
+          searchCategory,
+          searchDescription
+        ].join(" ");
+
+        const matchesSearch =
+          searchQuery === "" ||
+          searchableContent.includes(searchQuery);
+
+        result.hidden = !matchesSearch;
+
+        if (matchesSearch) {
+          visibleResults += 1;
+        }
+      });
+
+      if (searchQuery === "") {
+        searchResultsCount.textContent =
+          "Browse our latest articles and stories.";
+
+        searchResultsList.hidden = false;
+        searchEmptyState.hidden = true;
+
+        return;
+      }
+
+      if (visibleResults === 1) {
+        searchResultsCount.textContent =
+          '1 story found for "' +
+          searchInput.value.trim() +
+          '".';
+      } else {
+        searchResultsCount.textContent =
+          visibleResults +
+          ' stories found for "' +
+          searchInput.value.trim() +
+          '".';
+      }
+
+      if (visibleResults === 0) {
+        searchResultsList.hidden = true;
+        searchEmptyState.hidden = false;
+      } else {
+        searchResultsList.hidden = false;
+        searchEmptyState.hidden = true;
+      }
+    };
+
+    searchInput.addEventListener(
+      "input",
+      updateSearchResults
+    );
+
+    searchForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      updateSearchResults();
+    });
+
+    searchClear.addEventListener("click", () => {
+      searchInput.value = "";
+
+      updateSearchResults();
+
+      searchInput.focus();
+    });
+  }
 });
