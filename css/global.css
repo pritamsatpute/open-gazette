@@ -2408,3 +2408,125 @@ p {
   color: var(--color-text-secondary);
   line-height: 1.7;
 }
+
+/* -- Legal pages -- */
+.legal-hero {
+    padding: 112px 0 96px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.legal-hero__content {
+    max-width: 860px;
+}
+
+.legal-hero__title {
+    margin: 16px 0 0;
+    color: var(--color-text-primary);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.legal-hero__description {
+    max-width: 680px;
+    margin: 28px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.75;
+}
+
+.legal-hero__updated {
+    margin: 24px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+}
+
+/* Legal content */
+.legal-content {
+    padding: 112px 0 120px;
+}
+
+.legal-content__layout {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.55fr) minmax(0, 1.45fr);
+    gap: 120px;
+    align-items: start;
+}
+
+.legal-content__sidebar {
+    position: sticky;
+    top: 112px;
+}
+
+.legal-content__sidebar-title {
+    margin: 0 0 20px;
+    color: var(--color-text-primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.legal-content__navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.legal-content__navigation a {
+    color: var(--color-text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    transition: color var(--transition-fast);
+}
+
+.legal-content__navigation a:hover,
+.legal-content__navigation a:focus-visible {
+    color: var(--color-primary);
+}
+
+.legal-content__body {
+    max-width: 760px;
+}
+
+.legal-section {
+    scroll-margin-top: 120px;
+}
+
+.legal-section + .legal-section {
+    margin-top: 72px;
+}
+
+.legal-section h2 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 650;
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+}
+
+.legal-section p {
+    margin: 20px 0 0;
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+}
+
+.legal-section p + p {
+    margin-top: 20px;
+}
+
+.legal-section a {
+    color: var(--color-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.legal-section a:hover,
+.legal-section a:focus-visible {
+    color: var(--color-text-primary);
+}
