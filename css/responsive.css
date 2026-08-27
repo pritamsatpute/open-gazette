@@ -251,6 +251,35 @@
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 32px;
   }
+
+  /* About page */
+  .about-hero {
+    padding: 96px 0 100px;
+  }
+
+  .about-introduction {
+    padding: 96px 0;
+  }
+
+  .about-introduction__layout {
+    gap: 64px;
+  }
+
+  .about-topics {
+    padding: 96px 0;
+  }
+
+  .about-topics__grid {
+    margin-top: 56px;
+  }
+
+  .about-approach {
+    padding: 96px 0;
+  }
+
+  .about-approach__layout {
+    gap: 72px;
+  }
 }
 
 /* Mobile */
@@ -891,6 +920,88 @@
 
   .search-empty-state {
     padding: 72px 20px;
+  }
+
+  /* About Page */
+  .about-hero {
+    padding: 80px 0;
+  }
+
+  .about-hero__title {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .about-hero__description {
+    margin-top: 24px;
+    font-size: 1rem;
+  }
+
+  .about-introduction {
+    padding: 72px 0;
+  }
+
+  .about-introduction__layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .about-introduction__content p {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .about-introduction__content .about-introduction__lead {
+    font-size: 1.375rem;
+  }
+
+  .about-topics {
+    padding: 72px 0;
+  }
+
+  .about-topics__title {
+    font-size: 2.5rem;
+  }
+
+  .about-topics__grid {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+
+  .about-topic {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
+  .about-topic__title {
+    margin-top: 40px;
+    font-size: 1.75rem;
+  }
+
+  .about-topic__description {
+    margin-top: 16px;
+  }
+
+  .about-approach {
+    padding: 72px 0;
+  }
+
+  .about-approach__layout {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .about-approach__title {
+    font-size: 2.5rem;
+  }
+
+  .about-approach__description {
+    margin-top: 24px;
+    font-size: 1rem;
+  }
+
+  .about-principle {
+    padding: 28px 0;
   }
 }
 
