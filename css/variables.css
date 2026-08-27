@@ -1,4 +1,5 @@
 /* Color palette */
+
 :root {
   --color-red-0: #ed0411;
   --color-red-10: #d5040f;
@@ -22,7 +23,13 @@
   --color-red-light-90: #fde6e7;
 
   --color-black: #000000;
+  --color-dark: #0f0f0f;
   --color-white: #ffffff;
+
+  --color-gray-10: #e5e5e5;
+  --color-gray-20: #a3a3a3;
+  --color-gray-30: #262626;
+  --color-gray-40: #404040;
 }
 
 /* Typography */
@@ -114,20 +121,22 @@
   --color-header-background: var(--color-white);
   --color-footer-background: var(--color-red-90);
   --color-footer-text: var(--color-white);
+
+  --color-focus-ring: var(--color-red-light-80);
 }
 
 /* Dark theme */
 [data-theme="dark"] {
-  --color-background: var(--color-black);
+  --color-background: var(--color-dark);
   --color-surface: var(--color-red-90);
   --color-surface-secondary: var(--color-red-80);
 
   --color-text-primary: var(--color-white);
-  --color-text-secondary: var(--color-red-light-70);
-  --color-text-muted: var(--color-red-light-50);
+  --color-text-secondary: var(--color-gray-10);
+  --color-text-muted: var(--color-gray-20);
 
-  --color-border: var(--color-red-70);
-  --color-border-strong: var(--color-red-60);
+  --color-border: var(--color-gray-30);
+  --color-border-strong: var(--color-gray-40);
 
   --color-primary: var(--color-red-0);
   --color-primary-hover: var(--color-red-light-10);
@@ -135,9 +144,11 @@
 
   --color-on-primary: var(--color-white);
 
-  --color-header-background: var(--color-black);
+  --color-header-background: var(--color-dark);
   --color-footer-background: var(--color-red-90);
   --color-footer-text: var(--color-white);
+
+  --color-focus-ring: var(--color-red-40);
 }
 
 /* Responsive tokens */

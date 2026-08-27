@@ -1,108 +1,192 @@
 // Open Gazette main JavaScript
 document.addEventListener("DOMContentLoaded", () => {
 
-  
+
   // Theme toggle
   const themeToggle = document.querySelector(".theme-toggle");
   const themeStorageKey = "open-gazette-theme";
 
-  const savedTheme = localStorage.getItem(themeStorageKey);
+  if (themeToggle) {
+    const savedTheme = localStorage.getItem(themeStorageKey);
 
-  if (savedTheme === "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-    themeToggle.setAttribute("aria-pressed", "true");
-    themeToggle.setAttribute("aria-label", "Switch to light mode");
-  }
-
-  themeToggle.addEventListener("click", () => {
-    const isDarkTheme =
-      document.documentElement.getAttribute("data-theme") === "dark";
-
-    if (isDarkTheme) {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.setItem(themeStorageKey, "light");
-
-      themeToggle.setAttribute("aria-pressed", "false");
-      themeToggle.setAttribute("aria-label", "Switch to dark mode");
-    } else {
+    if (savedTheme === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem(themeStorageKey, "dark");
 
       themeToggle.setAttribute("aria-pressed", "true");
-      themeToggle.setAttribute("aria-label", "Switch to light mode");
+
+      themeToggle.setAttribute(
+        "aria-label",
+        "Switch to light mode"
+      );
     }
-  });
+
+    themeToggle.addEventListener("click", () => {
+      const isDarkTheme =
+        document.documentElement.getAttribute("data-theme") === "dark";
+
+      if (isDarkTheme) {
+        document.documentElement.removeAttribute("data-theme");
+
+        localStorage.setItem(themeStorageKey, "light");
+
+        themeToggle.setAttribute("aria-pressed", "false");
+
+        themeToggle.setAttribute(
+          "aria-label",
+          "Switch to dark mode"
+        );
+      } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+
+        localStorage.setItem(themeStorageKey, "dark");
+
+        themeToggle.setAttribute("aria-pressed", "true");
+
+        themeToggle.setAttribute(
+          "aria-label",
+          "Switch to light mode"
+        );
+      }
+    });
+  }
 
 
   // Mobile navigation
   const menuToggle = document.querySelector(".menu-toggle");
   const siteNavigation = document.querySelector(".site-navigation");
 
-  menuToggle.addEventListener("click", () => {
-    const isOpen = siteNavigation.classList.toggle("is-open");
+  if (menuToggle && siteNavigation) {
+    menuToggle.addEventListener("click", () => {
+      const isOpen = siteNavigation.classList.toggle("is-open");
 
-    menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.classList.toggle("is-active", isOpen);
 
-    menuToggle.setAttribute(
-      "aria-label",
-      isOpen ? "Close navigation menu" : "Open navigation menu"
-    );
-  });
+      document.body.classList.toggle("menu-open", isOpen);
 
+      menuToggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
 
-  // Close mobile navigation after selecting a link
-  const navigationLinks = document.querySelectorAll(
-    ".site-navigation__link"
-  );
-
-  navigationLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      siteNavigation.classList.remove("is-open");
-      menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Open navigation menu");
+      menuToggle.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close navigation menu"
+          : "Open navigation menu"
+      );
     });
-  });
+
+
+    // Close mobile navigation after selecting link
+    const navigationLinks = document.querySelectorAll(
+      ".site-navigation__link"
+    );
+
+    navigationLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        siteNavigation.classList.remove("is-open");
+
+        menuToggle.classList.remove("is-active");
+
+        document.body.classList.remove("menu-open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+      });
+    });
+
+
+    // Close mobile navigation with Escape key
+    document.addEventListener("keydown", (event) => {
+      if (
+        event.key === "Escape" &&
+        siteNavigation.classList.contains("is-open")
+      ) {
+        siteNavigation.classList.remove("is-open");
+
+        menuToggle.classList.remove("is-active");
+
+        document.body.classList.remove("menu-open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuToggle.setAttribute(
+          "aria-label",
+          "Open navigation menu"
+        );
+
+        menuToggle.focus();
+      }
+    });
+  }
 
 
   // Newsletter form
-  const newsletterForm = document.querySelector("#newsletter-form");
-  const newsletterEmail = document.querySelector("#newsletter-email");
-  const newsletterMessage = document.querySelector("#newsletter-message");
+  const newsletterForm = document.querySelector(
+    "#newsletter-form"
+  );
 
-  newsletterForm.addEventListener("submit", (event) => {
-    event.preventDefault();
+  const newsletterEmail = document.querySelector(
+    "#newsletter-email"
+  );
 
-    const emailValue = newsletterEmail.value.trim();
+  const newsletterMessage = document.querySelector(
+    "#newsletter-message"
+  );
 
-    newsletterMessage.classList.remove("is-error", "is-success");
+  if (
+    newsletterForm &&
+    newsletterEmail &&
+    newsletterMessage
+  ) {
+    newsletterForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-    if (!emailValue) {
+      const emailValue = newsletterEmail.value.trim();
+
+      newsletterMessage.classList.remove(
+        "is-error",
+        "is-success"
+      );
+
+      if (!emailValue) {
+        newsletterMessage.textContent =
+          "Please enter your email address.";
+
+        newsletterMessage.classList.add("is-error");
+
+        newsletterEmail.focus();
+
+        return;
+      }
+
+      if (!newsletterEmail.validity.valid) {
+        newsletterMessage.textContent =
+          "Please enter a valid email address.";
+
+        newsletterMessage.classList.add("is-error");
+
+        newsletterEmail.focus();
+
+        return;
+      }
+
       newsletterMessage.textContent =
-        "Please enter your email address.";
+        "Thanks for subscribing to Open Gazette.";
 
-      newsletterMessage.classList.add("is-error");
+      newsletterMessage.classList.add("is-success");
 
-      newsletterEmail.focus();
-
-      return;
-    }
-
-    if (!newsletterEmail.validity.valid) {
-      newsletterMessage.textContent =
-        "Please enter a valid email address.";
-
-      newsletterMessage.classList.add("is-error");
-
-      newsletterEmail.focus();
-
-      return;
-    }
-
-    newsletterMessage.textContent =
-      "Thanks for subscribing to Open Gazette.";
-
-    newsletterMessage.classList.add("is-success");
-
-    newsletterForm.reset();
-  });
+      newsletterForm.reset();
+    });
+  }
 });
