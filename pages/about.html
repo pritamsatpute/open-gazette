@@ -1,713 +1,551 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Learn more about Open Gazette, a modern digital publication sharing stories, ideas and perspectives."
-    >
+      name="description"
+      content="Learn more about Open Gazette, a modern digital publication sharing stories, ideas and perspectives."
+    />
 
     <title>About | Open Gazette</title>
 
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="../assets/icons/favicon.svg"
-    >
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 
-    <link rel="stylesheet" href="../css/index.css">
-</head>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
 
-<body>
+  <body>
     <div class="site-wrapper">
+      <!-- Header -->
 
-        <!-- Header -->
+      <header class="site-header">
+        <div class="container site-header__container">
+          <a
+            class="site-header__brand"
+            href="../index.html"
+            aria-label="Open Gazette home"
+          >
+            <img
+              class="site-header__logo site-header__logo--light"
+              src="../assets/logos/open-gazette-light.svg"
+              alt="Open Gazette"
+            />
 
-        <header class="site-header">
-            <div class="container site-header__container">
+            <img
+              class="site-header__logo site-header__logo--dark"
+              src="../assets/logos/open-gazette-dark.svg"
+              alt=""
+            />
+          </a>
 
-                <a
-                    class="site-header__brand"
-                    href="../index.html"
-                    aria-label="Open Gazette home"
-                >
-                    <img
-                        class="site-header__logo site-header__logo--light"
-                        src="../assets/logos/open-gazette-light.svg"
-                        alt="Open Gazette"
-                    >
+          <nav
+            class="site-navigation"
+            id="site-navigation"
+            aria-label="Primary navigation"
+          >
+            <ul class="site-navigation__list">
+              <li>
+                <a class="site-navigation__link" href="../index.html"> Home </a>
+              </li>
 
-                    <img
-                        class="site-header__logo site-header__logo--dark"
-                        src="../assets/logos/open-gazette-dark.svg"
-                        alt=""
-                    >
+              <li>
+                <a class="site-navigation__link" href="latest.html"> Latest </a>
+              </li>
+
+              <li>
+                <a class="site-navigation__link" href="trending.html">
+                  Trending
                 </a>
+              </li>
 
-                <nav
-                    class="site-navigation"
-                    id="site-navigation"
-                    aria-label="Primary navigation"
+              <li>
+                <a class="site-navigation__link" href="categories.html">
+                  Categories
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="site-navigation__link is-active"
+                  href="about.html"
+                  aria-current="page"
                 >
-                    <ul class="site-navigation__list">
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="../index.html"
-                            >
-                                Home
-                            </a>
-                        </li>
+                  About
+                </a>
+              </li>
+            </ul>
+          </nav>
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="latest.html"
-                            >
-                                Latest
-                            </a>
-                        </li>
+          <div class="site-header__actions">
+            <a class="header-button" href="search.html" aria-label="Search">
+              <svg
+                class="header-button__icon"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="221"
+                  cy="221"
+                  r="160"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="trending.html"
-                            >
-                                Trending
-                            </a>
-                        </li>
+                <path
+                  d="m338.29 338.29 125.41 125.41"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
+              </svg>
+            </a>
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="categories.html"
-                            >
-                                Categories
-                            </a>
-                        </li>
+            <button
+              class="theme-toggle"
+              type="button"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+            >
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--light"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="256"
+                  cy="256"
+                  r="104"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
 
-                        <li>
-                            <a
-                                class="site-navigation__link site-navigation__link--active"
-                                href="about.html"
-                                aria-current="page"
-                            >
-                                About
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                <path
+                  d="M256 80V48M256 464v-32M432 256h32M48 256h32M380.55 131.45l22.63-22.63M108.82 403.18l22.63-22.63M380.55 380.55l22.63 22.63M108.82 108.82l22.63 22.63"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
 
-                <div class="site-header__actions">
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--dark"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
+            </button>
 
-                    <a
-                        class="header-button"
-                        href="search.html"
-                        aria-label="Search"
+            <button
+              class="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="site-navigation"
+              aria-label="Open navigation menu"
+            >
+              <svg
+                class="menu-toggle__icon menu-toggle__icon--menu"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M80 160h352M80 256h352M80 352h352"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
+              </svg>
+
+              <svg
+                class="menu-toggle__icon menu-toggle__icon--close"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M368 368 144 144M368 144 144 368"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- About hero -->
+
+        <section class="about-hero">
+          <div class="container">
+            <div class="about-hero__content">
+              <p class="section-label">About Open Gazette</p>
+
+              <h1 class="about-hero__title">
+                A place for stories, ideas and perspectives that matter.
+              </h1>
+
+              <p class="about-hero__description">
+                Open Gazette is a modern digital publication created to explore
+                the ideas, stories, technologies and cultural moments shaping
+                the world around us.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- About introduction -->
+
+        <section class="about-introduction">
+          <div class="container">
+            <div class="about-introduction__layout">
+              <div class="about-introduction__label">
+                <p class="section-label">Our publication</p>
+              </div>
+
+              <div class="about-introduction__content">
+                <p class="about-introduction__lead">
+                  We believe the internet should have more room for thoughtful
+                  stories, useful ideas and perspectives worth spending time
+                  with.
+                </p>
+
+                <p>
+                  Open Gazette brings together articles from across technology,
+                  business, culture, lifestyle and the changing digital world.
+                  Our goal is simple: to make interesting ideas easier to
+                  discover and enjoyable to read.
+                </p>
+
+                <p>
+                  We are building a publication that values clarity over noise,
+                  curiosity over certainty and thoughtful perspectives over
+                  endless scrolling.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- What we cover -->
+
+        <section class="about-topics">
+          <div class="container">
+            <div class="about-topics__header">
+              <p class="section-label">What we cover</p>
+
+              <h2 class="about-topics__title">
+                Stories from across the world around us.
+              </h2>
+            </div>
+
+            <div class="about-topics__grid">
+              <article class="about-topic">
+                <span class="about-topic__number"> 01 </span>
+
+                <h3 class="about-topic__title">Technology</h3>
+
+                <p class="about-topic__description">
+                  The tools, platforms and innovations changing how we live,
+                  work and communicate.
+                </p>
+              </article>
+
+              <article class="about-topic">
+                <span class="about-topic__number"> 02 </span>
+
+                <h3 class="about-topic__title">Business</h3>
+
+                <p class="about-topic__description">
+                  Ideas, companies and people shaping the future of work and the
+                  global economy.
+                </p>
+              </article>
+
+              <article class="about-topic">
+                <span class="about-topic__number"> 03 </span>
+
+                <h3 class="about-topic__title">Culture</h3>
+
+                <p class="about-topic__description">
+                  The conversations, creative work and moments influencing the
+                  way we see the world.
+                </p>
+              </article>
+
+              <article class="about-topic">
+                <span class="about-topic__number"> 04 </span>
+
+                <h3 class="about-topic__title">Lifestyle</h3>
+
+                <p class="about-topic__description">
+                  Ideas and perspectives about how we live, create, connect and
+                  spend our time.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Editorial approach -->
+
+        <section class="about-approach">
+          <div class="container">
+            <div class="about-approach__layout">
+              <div class="about-approach__content">
+                <p class="section-label">Our approach</p>
+
+                <h2 class="about-approach__title">
+                  Thoughtful, clear and open.
+                </h2>
+
+                <p class="about-approach__description">
+                  We aim to create a reading experience that feels calm, focused
+                  and enjoyable. Every part of Open Gazette is designed around
+                  making good stories easier to discover.
+                </p>
+              </div>
+
+              <div class="about-principles">
+                <article class="about-principle">
+                  <h3 class="about-principle__title">Curiosity</h3>
+
+                  <p class="about-principle__description">
+                    We explore new ideas and different perspectives with an open
+                    mind.
+                  </p>
+                </article>
+
+                <article class="about-principle">
+                  <h3 class="about-principle__title">Clarity</h3>
+
+                  <p class="about-principle__description">
+                    We believe good writing should be easy to understand without
+                    being oversimplified.
+                  </p>
+                </article>
+
+                <article class="about-principle">
+                  <h3 class="about-principle__title">Perspective</h3>
+
+                  <p class="about-principle__description">
+                    The most interesting stories often become clearer when we
+                    look at them from more than one point of view.
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Newsletter -->
+
+        <section class="newsletter-section">
+          <div class="container">
+            <div class="newsletter">
+              <div class="newsletter__content">
+                <p class="section-label">Stay in the loop</p>
+
+                <h2 class="newsletter__title">
+                  Get the best stories delivered to your inbox.
+                </h2>
+
+                <p class="newsletter__description">
+                  Join Open Gazette and receive a curated selection of stories,
+                  ideas and perspectives worth your time.
+                </p>
+              </div>
+
+              <div class="newsletter__form-wrapper">
+                <form class="newsletter-form" id="newsletter-form" novalidate>
+                  <div class="newsletter-form__group">
+                    <label
+                      class="newsletter-form__label"
+                      for="newsletter-email"
                     >
-                        <svg
-                            class="header-button__icon"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="221"
-                                cy="221"
-                                r="160"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
+                      Email address
+                    </label>
 
-                            <path
-                                d="m338.29 338.29 125.41 125.41"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
-                        </svg>
+                    <div class="newsletter-form__controls">
+                      <input
+                        class="newsletter-form__input"
+                        id="newsletter-email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        aria-describedby="newsletter-message"
+                        required
+                      />
+
+                      <button class="newsletter-form__button" type="submit">
+                        Subscribe
+                      </button>
+                    </div>
+                  </div>
+
+                  <p
+                    class="newsletter-form__message"
+                    id="newsletter-message"
+                    aria-live="polite"
+                  ></p>
+                </form>
+
+                <p class="newsletter__privacy">
+                  No spam. Just thoughtful stories. You can unsubscribe anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Footer -->
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="site-footer__main">
+            <div class="site-footer__brand">
+              <a
+                class="site-footer__logo-link"
+                href="../index.html"
+                aria-label="Open Gazette home"
+              >
+                <img
+                  class="site-footer__logo"
+                  src="../assets/logos/open-gazette-dark.svg"
+                  alt="Open Gazette"
+                />
+              </a>
+
+              <p class="site-footer__description">
+                Open Gazette is a modern digital publication sharing stories,
+                ideas, perspectives and insights from across the world.
+              </p>
+            </div>
+
+            <div class="site-footer__links">
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Explore</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="../index.html">Home</a>
+                  </li>
+
+                  <li>
+                    <a href="latest.html">Latest</a>
+                  </li>
+
+                  <li>
+                    <a href="trending.html">Trending</a>
+                  </li>
+
+                  <li>
+                    <a href="categories.html"> Categories </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Topics</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="category.html"> Technology </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Business </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> AI </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Lifestyle </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Culture </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Connect</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      Instagram
                     </a>
+                  </li>
 
-                    <button
-                        class="theme-toggle"
-                        type="button"
-                        aria-label="Switch to dark mode"
-                        aria-pressed="false"
-                    >
-                        <svg
-                            class="theme-toggle__icon theme-toggle__icon--light"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="256"
-                                cy="256"
-                                r="104"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      X
+                    </a>
+                  </li>
 
-                            <path
-                                d="M256 80V48M256 464v-32M432 256h32M48 256h32M380.55 131.45l22.63-22.63M108.82 403.18l22.63-22.63M380.55 380.55l22.63 22.63M108.82 108.82l22.63 22.63"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      LinkedIn
+                    </a>
+                  </li>
 
-                        <svg
-                            class="theme-toggle__icon theme-toggle__icon--dark"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
-                    </button>
-
-                    <button
-                        class="menu-toggle"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="site-navigation"
-                        aria-label="Open navigation menu"
-                    >
-                        <svg
-                            class="menu-toggle__icon menu-toggle__icon--menu"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M80 160h352M80 256h352M80 352h352"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
-                        </svg>
-
-                        <svg
-                            class="menu-toggle__icon menu-toggle__icon--close"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M368 368 144 144M368 144 144 368"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
-                    </button>
-
-                </div>
+                  <li>
+                    <a href="mailto:hello@opengazette.com"> Contact </a>
+                  </li>
+                </ul>
+              </div>
             </div>
-        </header>
-
-        <main>
-
-            <!-- About hero -->
-
-            <section class="about-hero">
-                <div class="container">
-
-                    <div class="about-hero__content">
-
-                        <p class="section-label">
-                            About Open Gazette
-                        </p>
-
-                        <h1 class="about-hero__title">
-                            A place for stories, ideas and perspectives that matter.
-                        </h1>
-
-                        <p class="about-hero__description">
-                            Open Gazette is a modern digital publication created
-                            to explore the ideas, stories, technologies and
-                            cultural moments shaping the world around us.
-                        </p>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- About introduction -->
-
-            <section class="about-introduction">
-                <div class="container">
-
-                    <div class="about-introduction__layout">
-
-                        <div class="about-introduction__label">
-                            <p class="section-label">
-                                Our publication
-                            </p>
-                        </div>
-
-                        <div class="about-introduction__content">
-
-                            <p class="about-introduction__lead">
-                                We believe the internet should have more room
-                                for thoughtful stories, useful ideas and
-                                perspectives worth spending time with.
-                            </p>
-
-                            <p>
-                                Open Gazette brings together articles from
-                                across technology, business, culture, lifestyle
-                                and the changing digital world. Our goal is
-                                simple: to make interesting ideas easier to
-                                discover and enjoyable to read.
-                            </p>
-
-                            <p>
-                                We are building a publication that values
-                                clarity over noise, curiosity over certainty
-                                and thoughtful perspectives over endless
-                                scrolling.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- What we cover -->
-
-            <section class="about-topics">
-                <div class="container">
-
-                    <div class="about-topics__header">
-
-                        <p class="section-label">
-                            What we cover
-                        </p>
-
-                        <h2 class="about-topics__title">
-                            Stories from across the world around us.
-                        </h2>
-
-                    </div>
-
-                    <div class="about-topics__grid">
-
-                        <article class="about-topic">
-                            <span class="about-topic__number">
-                                01
-                            </span>
-
-                            <h3 class="about-topic__title">
-                                Technology
-                            </h3>
-
-                            <p class="about-topic__description">
-                                The tools, platforms and innovations changing
-                                how we live, work and communicate.
-                            </p>
-                        </article>
-
-                        <article class="about-topic">
-                            <span class="about-topic__number">
-                                02
-                            </span>
-
-                            <h3 class="about-topic__title">
-                                Business
-                            </h3>
-
-                            <p class="about-topic__description">
-                                Ideas, companies and people shaping the future
-                                of work and the global economy.
-                            </p>
-                        </article>
-
-                        <article class="about-topic">
-                            <span class="about-topic__number">
-                                03
-                            </span>
-
-                            <h3 class="about-topic__title">
-                                Culture
-                            </h3>
-
-                            <p class="about-topic__description">
-                                The conversations, creative work and moments
-                                influencing the way we see the world.
-                            </p>
-                        </article>
-
-                        <article class="about-topic">
-                            <span class="about-topic__number">
-                                04
-                            </span>
-
-                            <h3 class="about-topic__title">
-                                Lifestyle
-                            </h3>
-
-                            <p class="about-topic__description">
-                                Ideas and perspectives about how we live,
-                                create, connect and spend our time.
-                            </p>
-                        </article>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Editorial approach -->
-
-            <section class="about-approach">
-                <div class="container">
-
-                    <div class="about-approach__layout">
-
-                        <div class="about-approach__content">
-
-                            <p class="section-label">
-                                Our approach
-                            </p>
-
-                            <h2 class="about-approach__title">
-                                Thoughtful, clear and open.
-                            </h2>
-
-                            <p class="about-approach__description">
-                                We aim to create a reading experience that feels
-                                calm, focused and enjoyable. Every part of Open
-                                Gazette is designed around making good stories
-                                easier to discover.
-                            </p>
-
-                        </div>
-
-                        <div class="about-principles">
-
-                            <article class="about-principle">
-                                <h3 class="about-principle__title">
-                                    Curiosity
-                                </h3>
-
-                                <p class="about-principle__description">
-                                    We explore new ideas and different
-                                    perspectives with an open mind.
-                                </p>
-                            </article>
-
-                            <article class="about-principle">
-                                <h3 class="about-principle__title">
-                                    Clarity
-                                </h3>
-
-                                <p class="about-principle__description">
-                                    We believe good writing should be easy to
-                                    understand without being oversimplified.
-                                </p>
-                            </article>
-
-                            <article class="about-principle">
-                                <h3 class="about-principle__title">
-                                    Perspective
-                                </h3>
-
-                                <p class="about-principle__description">
-                                    The most interesting stories often become
-                                    clearer when we look at them from more than
-                                    one point of view.
-                                </p>
-                            </article>
-
-                        </div>
-
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- Newsletter -->
-
-            <section class="newsletter-section">
-                <div class="container">
-                    <div class="newsletter">
-
-                        <div class="newsletter__content">
-
-                            <p class="section-label">
-                                Stay in the loop
-                            </p>
-
-                            <h2 class="newsletter__title">
-                                Get the best stories delivered to your inbox.
-                            </h2>
-
-                            <p class="newsletter__description">
-                                Join Open Gazette and receive a curated
-                                selection of stories, ideas and perspectives
-                                worth your time.
-                            </p>
-
-                        </div>
-
-                        <div class="newsletter__form-wrapper">
-
-                            <form
-                                class="newsletter-form"
-                                id="newsletter-form"
-                                novalidate
-                            >
-                                <div class="newsletter-form__group">
-
-                                    <label
-                                        class="newsletter-form__label"
-                                        for="newsletter-email"
-                                    >
-                                        Email address
-                                    </label>
-
-                                    <div class="newsletter-form__controls">
-
-                                        <input
-                                            class="newsletter-form__input"
-                                            id="newsletter-email"
-                                            name="email"
-                                            type="email"
-                                            placeholder="Enter your email address"
-                                            autocomplete="email"
-                                            aria-describedby="newsletter-message"
-                                            required
-                                        >
-
-                                        <button
-                                            class="newsletter-form__button"
-                                            type="submit"
-                                        >
-                                            Subscribe
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                                <p
-                                    class="newsletter-form__message"
-                                    id="newsletter-message"
-                                    aria-live="polite"
-                                ></p>
-                            </form>
-
-                            <p class="newsletter__privacy">
-                                No spam. Just thoughtful stories. You can
-                                unsubscribe anytime.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-
-        <footer class="site-footer">
-            <div class="container">
-
-                <div class="site-footer__main">
-
-                    <div class="site-footer__brand">
-
-                        <a
-                            class="site-footer__logo-link"
-                            href="../index.html"
-                            aria-label="Open Gazette home"
-                        >
-                            <img
-                                class="site-footer__logo"
-                                src="../assets/logos/open-gazette-dark.svg"
-                                alt="Open Gazette"
-                            >
-                        </a>
-
-                        <p class="site-footer__description">
-                            Open Gazette is a modern digital publication
-                            sharing stories, ideas, perspectives and insights
-                            from across the world.
-                        </p>
-
-                    </div>
-
-                    <div class="site-footer__links">
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Explore
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a href="../index.html">Home</a>
-                                </li>
-
-                                <li>
-                                    <a href="latest.html">Latest</a>
-                                </li>
-
-                                <li>
-                                    <a href="trending.html">Trending</a>
-                                </li>
-
-                                <li>
-                                    <a href="categories.html">
-                                        Categories
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Topics
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a href="category.html">
-                                        Technology
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Business
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        AI
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Lifestyle
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Culture
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Connect
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Instagram
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        X
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        LinkedIn
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="mailto:hello@opengazette.com">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="site-footer__bottom">
-
-                    <p class="site-footer__copyright">
-                        © 2026 Open Gazette. All rights reserved.
-                    </p>
-
-                    <div class="site-footer__legal">
-                        <a href="privacy.html">Privacy</a>
-                        <a href="terms.html">Terms</a>
-                    </div>
-
-                </div>
-
-                <div
-                    class="site-footer__signature"
-                    aria-hidden="true"
-                >
-                    OPEN GAZETTE
-                </div>
-
+          </div>
+
+          <div class="site-footer__bottom">
+            <p class="site-footer__copyright">
+              © 2026 Open Gazette. All rights reserved.
+            </p>
+
+            <div class="site-footer__legal">
+              <a href="privacy.html">Privacy</a>
+              <a href="terms.html">Terms</a>
             </div>
-        </footer>
+          </div>
 
+          <div class="site-footer__signature" aria-hidden="true">
+            OPEN GAZETTE
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- Main JavaScript -->
     <script src="../js/main.js"></script>
-</body>
+  </body>
 </html>

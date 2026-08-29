@@ -1,946 +1,657 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Explore stories, ideas and perspectives across the topics that matter to you on Open Gazette."
-    >
+      name="description"
+      content="Explore stories, ideas and perspectives across the topics that matter to you on Open Gazette."
+    />
 
     <title>Categories | Open Gazette</title>
 
-    <link
-        rel="icon"
-        type="image/svg+xml"
-        href="../assets/icons/favicon.svg"
-    >
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg" />
 
-    <link rel="stylesheet" href="../css/index.css">
-</head>
+    <link rel="stylesheet" href="../css/index.css" />
+  </head>
 
-<body>
+  <body>
     <div class="site-wrapper">
+      <!-- Header -->
 
-        <!-- Header -->
+      <header class="site-header">
+        <div class="container site-header__container">
+          <a
+            class="site-header__brand"
+            href="../index.html"
+            aria-label="Open Gazette home"
+          >
+            <img
+              class="site-header__logo site-header__logo--light"
+              src="../assets/logos/open-gazette-light.svg"
+              alt="Open Gazette"
+            />
 
-        <header class="site-header">
-            <div class="container site-header__container">
+            <img
+              class="site-header__logo site-header__logo--dark"
+              src="../assets/logos/open-gazette-dark.svg"
+              alt=""
+            />
+          </a>
 
+          <nav
+            class="site-navigation"
+            id="site-navigation"
+            aria-label="Primary navigation"
+          >
+            <ul class="site-navigation__list">
+              <li>
+                <a class="site-navigation__link" href="../index.html"> Home </a>
+              </li>
+
+              <li>
+                <a class="site-navigation__link" href="latest.html"> Latest </a>
+              </li>
+
+              <li>
+                <a class="site-navigation__link" href="trending.html">
+                  Trending
+                </a>
+              </li>
+
+              <li>
                 <a
-                    class="site-header__brand"
-                    href="../index.html"
-                    aria-label="Open Gazette home"
+                  class="site-navigation__link is-active"
+                  href="categories.html"
+                  aria-current="page"
                 >
-                    <img
-                        class="site-header__logo site-header__logo--light"
-                        src="../assets/logos/open-gazette-light.svg"
-                        alt="Open Gazette"
-                    >
+                  Categories
+                </a>
+              </li>
 
-                    <img
-                        class="site-header__logo site-header__logo--dark"
-                        src="../assets/logos/open-gazette-dark.svg"
-                        alt=""
-                    >
+              <li>
+                <a class="site-navigation__link" href="about.html"> About </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="site-header__actions">
+            <button class="header-button" type="button" aria-label="Search">
+              <svg
+                class="header-button__icon"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="221"
+                  cy="221"
+                  r="160"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
+
+                <path
+                  d="m338.29 338.29 125.41 125.41"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="theme-toggle"
+              type="button"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+            >
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--light"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <circle
+                  cx="256"
+                  cy="256"
+                  r="104"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+
+                <path
+                  d="M256 80V48M256 464v-32M432 256h32M48 256h32M380.55 131.45l22.63-22.63M108.82 403.18l22.63-22.63M380.55 380.55l22.63 22.63M108.82 108.82l22.63 22.63"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
+
+              <svg
+                class="theme-toggle__icon theme-toggle__icon--dark"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
+            </button>
+
+            <button
+              class="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="site-navigation"
+              aria-label="Open navigation menu"
+            >
+              <svg
+                class="menu-toggle__icon menu-toggle__icon--menu"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M80 160h352M80 256h352M80 352h352"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-miterlimit="10"
+                  stroke-width="32px"
+                />
+              </svg>
+
+              <svg
+                class="menu-toggle__icon menu-toggle__icon--close"
+                viewBox="0 0 512 512"
+                aria-hidden="true"
+              >
+                <path
+                  d="M368 368 144 144M368 144 144 368"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="32px"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!-- Categories hero -->
+
+        <section class="page-hero">
+          <div class="container">
+            <div class="page-hero__content">
+              <p class="section-label">Explore Topics</p>
+
+              <h1 class="page-hero__title">Categories</h1>
+
+              <p class="page-hero__description">
+                Discover stories, ideas and perspectives across the topics that
+                matter to you.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured category -->
+
+        <section class="featured-category">
+          <div class="container">
+            <div class="featured-category__card">
+              <div class="featured-category__visual">
+                <img
+                  class="featured-category__image"
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+                  alt="Modern technology circuit board"
+                />
+              </div>
+
+              <div class="featured-category__content">
+                <p class="section-label">Featured Topic</p>
+
+                <h2 class="featured-category__title">Technology</h2>
+
+                <p class="featured-category__description">
+                  Explore the ideas, innovations and technologies shaping the
+                  digital world and changing how we live, work and connect.
+                </p>
+
+                <a class="featured-category__link" href="category.html">
+                  Explore Technology
+
+                  <span class="featured-category__arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- All categories -->
+
+        <section class="categories-section">
+          <div class="container">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">Browse Topics</p>
+
+                <h2 class="section-title">All Categories</h2>
+              </div>
+            </div>
+
+            <div class="categories-grid">
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 01 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Technology</h3>
+
+                  <p class="category-card__description">
+                    Technology, innovation, software and the digital world.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 02 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Business</h3>
+
+                  <p class="category-card__description">
+                    Companies, startups, ideas and the future of business.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 03 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Artificial Intelligence</h3>
+
+                  <p class="category-card__description">
+                    AI, emerging tools and the technologies changing the future.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 04 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Lifestyle</h3>
+
+                  <p class="category-card__description">
+                    Everyday life, productivity, wellbeing and modern living.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 05 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Culture</h3>
+
+                  <p class="category-card__description">
+                    Entertainment, society, trends and ideas shaping modern
+                    culture.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+
+              <a class="category-card" href="category.html">
+                <span class="category-card__number"> 06 </span>
+
+                <div class="category-card__content">
+                  <h3 class="category-card__title">Work</h3>
+
+                  <p class="category-card__description">
+                    Careers, workplaces and the future of how people work.
+                  </p>
+                </div>
+
+                <span class="category-card__arrow" aria-hidden="true"> → </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Popular stories -->
+
+        <section class="popular-stories-section">
+          <div class="container">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">Explore More</p>
+
+                <h2 class="section-title">Popular Stories</h2>
+              </div>
+            </div>
+
+            <div class="latest-stories-grid">
+              <article class="article-card">
+                <a class="article-card__image-link" href="article.html">
+                  <img
+                    class="article-card__image"
+                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
+                    alt="Artificial intelligence visualization"
+                  />
                 </a>
 
-                <nav
-                    class="site-navigation"
-                    id="site-navigation"
-                    aria-label="Primary navigation"
-                >
-                    <ul class="site-navigation__list">
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="../index.html"
-                            >
-                                Home
-                            </a>
-                        </li>
+                <div class="article-card__content">
+                  <a class="article-category" href="category.html"> AI </a>
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="latest.html"
-                            >
-                                Latest
-                            </a>
-                        </li>
+                  <h3 class="article-card__title">
+                    <a href="article.html">
+                      How artificial intelligence is changing everyday life
+                    </a>
+                  </h3>
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="trending.html"
-                            >
-                                Trending
-                            </a>
-                        </li>
+                  <p class="article-card__excerpt">
+                    AI is becoming part of the products, services and tools
+                    people use every day.
+                  </p>
 
-                        <li>
-                            <a
-                                class="site-navigation__link is-active"
-                                href="categories.html"
-                                aria-current="page"
-                            >
-                                Categories
-                            </a>
-                        </li>
+                  <div class="article-meta">
+                    <time datetime="2026-08-25"> August 25, 2026 </time>
 
-                        <li>
-                            <a
-                                class="site-navigation__link"
-                                href="about.html"
-                            >
-                                About
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+                    <span class="article-meta__separator"> · </span>
 
-                <div class="site-header__actions">
-
-                    <button
-                        class="header-button"
-                        type="button"
-                        aria-label="Search"
-                    >
-                        <svg
-                            class="header-button__icon"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="221"
-                                cy="221"
-                                r="160"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
-
-                            <path
-                                d="m338.29 338.29 125.41 125.41"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
-                        </svg>
-                    </button>
-
-                    <button
-                        class="theme-toggle"
-                        type="button"
-                        aria-label="Switch to dark mode"
-                        aria-pressed="false"
-                    >
-                        <svg
-                            class="theme-toggle__icon theme-toggle__icon--light"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="256"
-                                cy="256"
-                                r="104"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-
-                            <path
-                                d="M256 80V48M256 464v-32M432 256h32M48 256h32M380.55 131.45l22.63-22.63M108.82 403.18l22.63-22.63M380.55 380.55l22.63 22.63M108.82 108.82l22.63 22.63"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
-
-                        <svg
-                            class="theme-toggle__icon theme-toggle__icon--dark"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M160 136c0-30.62 4.51-61.61 16-88C99.57 81.27 48 159.32 48 248c0 119.29 96.71 216 216 216 88.68 0 166.73-51.57 200-128-26.39 11.49-57.38 16-88 16-119.29 0-216-96.71-216-216"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
-                    </button>
-
-                    <button
-                        class="menu-toggle"
-                        type="button"
-                        aria-expanded="false"
-                        aria-controls="site-navigation"
-                        aria-label="Open navigation menu"
-                    >
-                        <svg
-                            class="menu-toggle__icon menu-toggle__icon--menu"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M80 160h352M80 256h352M80 352h352"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-miterlimit="10"
-                                stroke-width="32px"
-                            />
-                        </svg>
-
-                        <svg
-                            class="menu-toggle__icon menu-toggle__icon--close"
-                            viewBox="0 0 512 512"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M368 368 144 144M368 144 144 368"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="32px"
-                            />
-                        </svg>
-                    </button>
-
+                    <span> 6 min read </span>
+                  </div>
                 </div>
+              </article>
+
+              <article class="article-card">
+                <a class="article-card__image-link" href="article.html">
+                  <img
+                    class="article-card__image"
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80"
+                    alt="Team working together"
+                  />
+                </a>
+
+                <div class="article-card__content">
+                  <a class="article-category" href="category.html">
+                    Business
+                  </a>
+
+                  <h3 class="article-card__title">
+                    <a href="article.html">
+                      The new ideas shaping modern businesses
+                    </a>
+                  </h3>
+
+                  <p class="article-card__excerpt">
+                    Businesses are exploring new technologies and ways of
+                    working to prepare for the future.
+                  </p>
+
+                  <div class="article-meta">
+                    <time datetime="2026-08-24"> August 24, 2026 </time>
+
+                    <span class="article-meta__separator"> · </span>
+
+                    <span> 5 min read </span>
+                  </div>
+                </div>
+              </article>
+
+              <article class="article-card">
+                <a class="article-card__image-link" href="article.html">
+                  <img
+                    class="article-card__image"
+                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
+                    alt="Person writing at a desk"
+                  />
+                </a>
+
+                <div class="article-card__content">
+                  <a class="article-category" href="category.html">
+                    Lifestyle
+                  </a>
+
+                  <h3 class="article-card__title">
+                    <a href="article.html">
+                      Small ideas for creating a more intentional everyday life
+                    </a>
+                  </h3>
+
+                  <p class="article-card__excerpt">
+                    Simple changes can help create more space for focus,
+                    creativity and meaningful experiences.
+                  </p>
+
+                  <div class="article-meta">
+                    <time datetime="2026-08-22"> August 22, 2026 </time>
+
+                    <span class="article-meta__separator"> · </span>
+
+                    <span> 4 min read </span>
+                  </div>
+                </div>
+              </article>
             </div>
-        </header>
+          </div>
+        </section>
 
-        <main>
+        <!-- Newsletter -->
 
-            <!-- Categories hero -->
+        <section class="newsletter-section">
+          <div class="container">
+            <div class="newsletter">
+              <div class="newsletter__content">
+                <p class="section-label">Stay in the loop</p>
 
-            <section class="page-hero">
-                <div class="container">
-                    <div class="page-hero__content">
+                <h2 class="newsletter__title">
+                  Get the best stories delivered to your inbox.
+                </h2>
 
-                        <p class="section-label">
-                            Explore Topics
-                        </p>
+                <p class="newsletter__description">
+                  Join Open Gazette and receive a curated selection of stories,
+                  ideas and perspectives worth your time.
+                </p>
+              </div>
 
-                        <h1 class="page-hero__title">
-                            Categories
-                        </h1>
+              <div class="newsletter__form-wrapper">
+                <form class="newsletter-form" id="newsletter-form" novalidate>
+                  <div class="newsletter-form__group">
+                    <label
+                      class="newsletter-form__label"
+                      for="newsletter-email"
+                    >
+                      Email address
+                    </label>
 
-                        <p class="page-hero__description">
-                            Discover stories, ideas and perspectives across
-                            the topics that matter to you.
-                        </p>
+                    <div class="newsletter-form__controls">
+                      <input
+                        class="newsletter-form__input"
+                        id="newsletter-email"
+                        name="email"
+                        type="email"
+                        placeholder="Enter your email address"
+                        autocomplete="email"
+                        aria-describedby="newsletter-message"
+                        required
+                      />
 
+                      <button class="newsletter-form__button" type="submit">
+                        Subscribe
+                      </button>
                     </div>
-                </div>
-            </section>
-
-            <!-- Featured category -->
-
-            <section class="featured-category">
-                <div class="container">
-
-                    <div class="featured-category__card">
-
-                        <div class="featured-category__visual">
-                            <img
-                                class="featured-category__image"
-                                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
-                                alt="Modern technology circuit board"
-                            >
-                        </div>
-
-                        <div class="featured-category__content">
-
-                            <p class="section-label">
-                                Featured Topic
-                            </p>
-
-                            <h2 class="featured-category__title">
-                                Technology
-                            </h2>
-
-                            <p class="featured-category__description">
-                                Explore the ideas, innovations and technologies
-                                shaping the digital world and changing how we
-                                live, work and connect.
-                            </p>
-
-                            <a
-                                class="featured-category__link"
-                                href="category.html"
-                            >
-                                Explore Technology
-
-                                <span
-                                    class="featured-category__arrow"
-                                    aria-hidden="true"
-                                >
-                                    →
-                                </span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- All categories -->
-
-            <section class="categories-section">
-                <div class="container">
-
-                    <div class="section-heading">
-                        <div>
-
-                            <p class="section-label">
-                                Browse Topics
-                            </p>
-
-                            <h2 class="section-title">
-                                All Categories
-                            </h2>
-
-                        </div>
-                    </div>
-
-                    <div class="categories-grid">
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                01
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Technology
-                                </h3>
-
-                                <p class="category-card__description">
-                                    Technology, innovation, software and the
-                                    digital world.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                02
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Business
-                                </h3>
-
-                                <p class="category-card__description">
-                                    Companies, startups, ideas and the future
-                                    of business.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                03
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Artificial Intelligence
-                                </h3>
-
-                                <p class="category-card__description">
-                                    AI, emerging tools and the technologies
-                                    changing the future.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                04
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Lifestyle
-                                </h3>
-
-                                <p class="category-card__description">
-                                    Everyday life, productivity, wellbeing and
-                                    modern living.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                05
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Culture
-                                </h3>
-
-                                <p class="category-card__description">
-                                    Entertainment, society, trends and ideas
-                                    shaping modern culture.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                        <a
-                            class="category-card"
-                            href="category.html"
-                        >
-                            <span class="category-card__number">
-                                06
-                            </span>
-
-                            <div class="category-card__content">
-
-                                <h3 class="category-card__title">
-                                    Work
-                                </h3>
-
-                                <p class="category-card__description">
-                                    Careers, workplaces and the future of how
-                                    people work.
-                                </p>
-
-                            </div>
-
-                            <span
-                                class="category-card__arrow"
-                                aria-hidden="true"
-                            >
-                                →
-                            </span>
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Popular stories -->
-
-            <section class="popular-stories-section">
-                <div class="container">
-
-                    <div class="section-heading">
-                        <div>
-
-                            <p class="section-label">
-                                Explore More
-                            </p>
-
-                            <h2 class="section-title">
-                                Popular Stories
-                            </h2>
-
-                        </div>
-                    </div>
-
-                    <div class="latest-stories-grid">
-
-                        <article class="article-card">
-
-                            <a
-                                class="article-card__image-link"
-                                href="article.html"
-                            >
-                                <img
-                                    class="article-card__image"
-                                    src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80"
-                                    alt="Artificial intelligence visualization"
-                                >
-                            </a>
-
-                            <div class="article-card__content">
-
-                                <a
-                                    class="article-category"
-                                    href="category.html"
-                                >
-                                    AI
-                                </a>
-
-                                <h3 class="article-card__title">
-                                    <a href="article.html">
-                                        How artificial intelligence is changing
-                                        everyday life
-                                    </a>
-                                </h3>
-
-                                <p class="article-card__excerpt">
-                                    AI is becoming part of the products,
-                                    services and tools people use every day.
-                                </p>
-
-                                <div class="article-meta">
-
-                                    <time datetime="2026-08-25">
-                                        August 25, 2026
-                                    </time>
-
-                                    <span class="article-meta__separator">
-                                        ·
-                                    </span>
-
-                                    <span>
-                                        6 min read
-                                    </span>
-
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-
-                            <a
-                                class="article-card__image-link"
-                                href="article.html"
-                            >
-                                <img
-                                    class="article-card__image"
-                                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=800&q=80"
-                                    alt="Team working together"
-                                >
-                            </a>
-
-                            <div class="article-card__content">
-
-                                <a
-                                    class="article-category"
-                                    href="category.html"
-                                >
-                                    Business
-                                </a>
-
-                                <h3 class="article-card__title">
-                                    <a href="article.html">
-                                        The new ideas shaping modern businesses
-                                    </a>
-                                </h3>
-
-                                <p class="article-card__excerpt">
-                                    Businesses are exploring new technologies
-                                    and ways of working to prepare for the
-                                    future.
-                                </p>
-
-                                <div class="article-meta">
-
-                                    <time datetime="2026-08-24">
-                                        August 24, 2026
-                                    </time>
-
-                                    <span class="article-meta__separator">
-                                        ·
-                                    </span>
-
-                                    <span>
-                                        5 min read
-                                    </span>
-
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="article-card">
-
-                            <a
-                                class="article-card__image-link"
-                                href="article.html"
-                            >
-                                <img
-                                    class="article-card__image"
-                                    src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80"
-                                    alt="Person writing at a desk"
-                                >
-                            </a>
-
-                            <div class="article-card__content">
-
-                                <a
-                                    class="article-category"
-                                    href="category.html"
-                                >
-                                    Lifestyle
-                                </a>
-
-                                <h3 class="article-card__title">
-                                    <a href="article.html">
-                                        Small ideas for creating a more
-                                        intentional everyday life
-                                    </a>
-                                </h3>
-
-                                <p class="article-card__excerpt">
-                                    Simple changes can help create more space
-                                    for focus, creativity and meaningful
-                                    experiences.
-                                </p>
-
-                                <div class="article-meta">
-
-                                    <time datetime="2026-08-22">
-                                        August 22, 2026
-                                    </time>
-
-                                    <span class="article-meta__separator">
-                                        ·
-                                    </span>
-
-                                    <span>
-                                        4 min read
-                                    </span>
-
-                                </div>
-                            </div>
-                        </article>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- Newsletter -->
-
-            <section class="newsletter-section">
-                <div class="container">
-                    <div class="newsletter">
-
-                        <div class="newsletter__content">
-
-                            <p class="section-label">
-                                Stay in the loop
-                            </p>
-
-                            <h2 class="newsletter__title">
-                                Get the best stories delivered to your inbox.
-                            </h2>
-
-                            <p class="newsletter__description">
-                                Join Open Gazette and receive a curated
-                                selection of stories, ideas and perspectives
-                                worth your time.
-                            </p>
-
-                        </div>
-
-                        <div class="newsletter__form-wrapper">
-
-                            <form
-                                class="newsletter-form"
-                                id="newsletter-form"
-                                novalidate
-                            >
-                                <div class="newsletter-form__group">
-
-                                    <label
-                                        class="newsletter-form__label"
-                                        for="newsletter-email"
-                                    >
-                                        Email address
-                                    </label>
-
-                                    <div class="newsletter-form__controls">
-
-                                        <input
-                                            class="newsletter-form__input"
-                                            id="newsletter-email"
-                                            name="email"
-                                            type="email"
-                                            placeholder="Enter your email address"
-                                            autocomplete="email"
-                                            aria-describedby="newsletter-message"
-                                            required
-                                        >
-
-                                        <button
-                                            class="newsletter-form__button"
-                                            type="submit"
-                                        >
-                                            Subscribe
-                                        </button>
-
-                                    </div>
-                                </div>
-
-                                <p
-                                    class="newsletter-form__message"
-                                    id="newsletter-message"
-                                    aria-live="polite"
-                                ></p>
-                            </form>
-
-                            <p class="newsletter__privacy">
-                                No spam. Just thoughtful stories. You can
-                                unsubscribe anytime.
-                            </p>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Footer -->
-
-        <footer class="site-footer">
-            <div class="container">
-
-                <div class="site-footer__main">
-
-                    <div class="site-footer__brand">
-
-                        <a
-                            class="site-footer__logo-link"
-                            href="../index.html"
-                            aria-label="Open Gazette home"
-                        >
-                            <img
-                                class="site-footer__logo"
-                                src="../assets/logos/open-gazette-dark.svg"
-                                alt="Open Gazette"
-                            >
-                        </a>
-
-                        <p class="site-footer__description">
-                            Open Gazette is a modern digital publication
-                            sharing stories, ideas, perspectives and insights
-                            from across the world.
-                        </p>
-
-                    </div>
-
-                    <div class="site-footer__links">
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Explore
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a href="../index.html">Home</a>
-                                </li>
-
-                                <li>
-                                    <a href="latest.html">Latest</a>
-                                </li>
-
-                                <li>
-                                    <a href="trending.html">Trending</a>
-                                </li>
-
-                                <li>
-                                    <a href="categories.html">
-                                        Categories
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Topics
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a href="category.html">
-                                        Technology
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Business
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        AI
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Lifestyle
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="category.html">
-                                        Culture
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                        <div class="footer-links-group">
-
-                            <h2 class="footer-links-group__title">
-                                Connect
-                            </h2>
-
-                            <ul class="footer-links-group__list">
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Instagram
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        X
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        href="#"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        LinkedIn
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="mailto:hello@opengazette.com">
-                                        Contact
-                                    </a>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="site-footer__bottom">
-
-                    <p class="site-footer__copyright">
-                        © 2026 Open Gazette. All rights reserved.
-                    </p>
-
-                    <div class="site-footer__legal">
-                        <a href="privacy.html">Privacy</a>
-                        <a href="terms.html">Terms</a>
-                    </div>
-
-                </div>
-
-                <div
-                    class="site-footer__signature"
-                    aria-hidden="true"
-                >
-                    OPEN GAZETTE
-                </div>
-
+                  </div>
+
+                  <p
+                    class="newsletter-form__message"
+                    id="newsletter-message"
+                    aria-live="polite"
+                  ></p>
+                </form>
+
+                <p class="newsletter__privacy">
+                  No spam. Just thoughtful stories. You can unsubscribe anytime.
+                </p>
+              </div>
             </div>
-        </footer>
+          </div>
+        </section>
+      </main>
 
+      <!-- Footer -->
+
+      <footer class="site-footer">
+        <div class="container">
+          <div class="site-footer__main">
+            <div class="site-footer__brand">
+              <a
+                class="site-footer__logo-link"
+                href="../index.html"
+                aria-label="Open Gazette home"
+              >
+                <img
+                  class="site-footer__logo"
+                  src="../assets/logos/open-gazette-dark.svg"
+                  alt="Open Gazette"
+                />
+              </a>
+
+              <p class="site-footer__description">
+                Open Gazette is a modern digital publication sharing stories,
+                ideas, perspectives and insights from across the world.
+              </p>
+            </div>
+
+            <div class="site-footer__links">
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Explore</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="../index.html">Home</a>
+                  </li>
+
+                  <li>
+                    <a href="latest.html">Latest</a>
+                  </li>
+
+                  <li>
+                    <a href="trending.html">Trending</a>
+                  </li>
+
+                  <li>
+                    <a href="categories.html"> Categories </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Topics</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="category.html"> Technology </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Business </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> AI </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Lifestyle </a>
+                  </li>
+
+                  <li>
+                    <a href="category.html"> Culture </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer-links-group">
+                <h2 class="footer-links-group__title">Connect</h2>
+
+                <ul class="footer-links-group__list">
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      Instagram
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      X
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                      LinkedIn
+                    </a>
+                  </li>
+
+                  <li>
+                    <a href="mailto:hello@opengazette.com"> Contact </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="site-footer__bottom">
+            <p class="site-footer__copyright">
+              © 2026 Open Gazette. All rights reserved.
+            </p>
+
+            <div class="site-footer__legal">
+              <a href="privacy.html">Privacy</a>
+              <a href="terms.html">Terms</a>
+            </div>
+          </div>
+
+          <div class="site-footer__signature" aria-hidden="true">
+            OPEN GAZETTE
+          </div>
+        </div>
+      </footer>
     </div>
 
     <!-- Main JavaScript -->
     <script src="../js/main.js"></script>
-</body>
+  </body>
 </html>
