@@ -1,7 +1,5 @@
 // Open Gazette main JavaScript
 document.addEventListener("DOMContentLoaded", () => {
-
-
   // Theme toggle
   const themeToggle = document.querySelector(".theme-toggle");
   const themeStorageKey = "open-gazette-theme";
@@ -14,10 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       themeToggle.setAttribute("aria-pressed", "true");
 
-      themeToggle.setAttribute(
-        "aria-label",
-        "Switch to light mode"
-      );
+      themeToggle.setAttribute("aria-label", "Switch to light mode");
     }
 
     themeToggle.addEventListener("click", () => {
@@ -31,10 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         themeToggle.setAttribute("aria-pressed", "false");
 
-        themeToggle.setAttribute(
-          "aria-label",
-          "Switch to dark mode"
-        );
+        themeToggle.setAttribute("aria-label", "Switch to dark mode");
       } else {
         document.documentElement.setAttribute("data-theme", "dark");
 
@@ -42,14 +34,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         themeToggle.setAttribute("aria-pressed", "true");
 
-        themeToggle.setAttribute(
-          "aria-label",
-          "Switch to light mode"
-        );
+        themeToggle.setAttribute("aria-label", "Switch to light mode");
       }
     });
   }
-
 
   // Mobile navigation
   const menuToggle = document.querySelector(".menu-toggle");
@@ -63,24 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.body.classList.toggle("menu-open", isOpen);
 
-      menuToggle.setAttribute(
-        "aria-expanded",
-        String(isOpen)
-      );
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
 
       menuToggle.setAttribute(
         "aria-label",
-        isOpen
-          ? "Close navigation menu"
-          : "Open navigation menu"
+        isOpen ? "Close navigation menu" : "Open navigation menu",
       );
     });
 
-
     // Close mobile navigation after selecting link
-    const navigationLinks = document.querySelectorAll(
-      ".site-navigation__link"
-    );
+    const navigationLinks = document.querySelectorAll(".site-navigation__link");
 
     navigationLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -90,18 +70,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.classList.remove("menu-open");
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+        menuToggle.setAttribute("aria-expanded", "false");
 
-        menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation menu"
-        );
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
       });
     });
-
 
     // Close mobile navigation with Escape key
     document.addEventListener("keydown", (event) => {
@@ -115,53 +88,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.classList.remove("menu-open");
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+        menuToggle.setAttribute("aria-expanded", "false");
 
-        menuToggle.setAttribute(
-          "aria-label",
-          "Open navigation menu"
-        );
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
 
         menuToggle.focus();
       }
     });
   }
 
-
   // Newsletter form
-  const newsletterForm = document.querySelector(
-    "#newsletter-form"
-  );
+  const newsletterForm = document.querySelector("#newsletter-form");
 
-  const newsletterEmail = document.querySelector(
-    "#newsletter-email"
-  );
+  const newsletterEmail = document.querySelector("#newsletter-email");
 
-  const newsletterMessage = document.querySelector(
-    "#newsletter-message"
-  );
+  const newsletterMessage = document.querySelector("#newsletter-message");
 
-  if (
-    newsletterForm &&
-    newsletterEmail &&
-    newsletterMessage
-  ) {
+  if (newsletterForm && newsletterEmail && newsletterMessage) {
     newsletterForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
       const emailValue = newsletterEmail.value.trim();
 
-      newsletterMessage.classList.remove(
-        "is-error",
-        "is-success"
-      );
+      newsletterMessage.classList.remove("is-error", "is-success");
 
       if (!emailValue) {
-        newsletterMessage.textContent =
-          "Please enter your email address.";
+        newsletterMessage.textContent = "Please enter your email address.";
 
         newsletterMessage.classList.add("is-error");
 
@@ -171,8 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (!newsletterEmail.validity.valid) {
-        newsletterMessage.textContent =
-          "Please enter a valid email address.";
+        newsletterMessage.textContent = "Please enter a valid email address.";
 
         newsletterMessage.classList.add("is-error");
 
@@ -181,8 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      newsletterMessage.textContent =
-        "Thanks for subscribing to Open Gazette.";
+      newsletterMessage.textContent = "Thanks for subscribing to Open Gazette.";
 
       newsletterMessage.classList.add("is-success");
 
@@ -194,15 +144,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchForm = document.querySelector("#search-form");
   const searchInput = document.querySelector("#search-input");
   const searchClear = document.querySelector("#search-clear");
-  const searchResultsList = document.querySelector(
-    "#search-results-list"
-  );
-  const searchResultsCount = document.querySelector(
-    "#search-results-count"
-  );
-  const searchEmptyState = document.querySelector(
-    "#search-empty-state"
-  );
+  const searchResultsList = document.querySelector("#search-results-list");
+  const searchResultsCount = document.querySelector("#search-results-count");
+  const searchEmptyState = document.querySelector("#search-empty-state");
 
   if (
     searchForm &&
@@ -213,24 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
     searchEmptyState
   ) {
     const searchResults = Array.from(
-      searchResultsList.querySelectorAll(".search-result")
+      searchResultsList.querySelectorAll(".search-result"),
     );
 
     const updateSearchResults = () => {
-      const searchQuery = searchInput.value
-        .trim()
-        .toLowerCase();
+      const searchQuery = searchInput.value.trim().toLowerCase();
 
-        searchClear.hidden = searchQuery === "";
+      searchClear.hidden = searchQuery === "";
 
       let visibleResults = 0;
 
       searchResults.forEach((result) => {
-        const searchTitle =
-          result.dataset.searchTitle.toLowerCase();
+        const searchTitle = result.dataset.searchTitle.toLowerCase();
 
-        const searchCategory =
-          result.dataset.searchCategory.toLowerCase();
+        const searchCategory = result.dataset.searchCategory.toLowerCase();
 
         const searchDescription =
           result.dataset.searchDescription.toLowerCase();
@@ -238,12 +178,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const searchableContent = [
           searchTitle,
           searchCategory,
-          searchDescription
+          searchDescription,
         ].join(" ");
 
         const matchesSearch =
-          searchQuery === "" ||
-          searchableContent.includes(searchQuery);
+          searchQuery === "" || searchableContent.includes(searchQuery);
 
         result.hidden = !matchesSearch;
 
@@ -264,9 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (visibleResults === 1) {
         searchResultsCount.textContent =
-          '1 story found for "' +
-          searchInput.value.trim() +
-          '".';
+          '1 story found for "' + searchInput.value.trim() + '".';
       } else {
         searchResultsCount.textContent =
           visibleResults +
@@ -284,10 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    searchInput.addEventListener(
-      "input",
-      updateSearchResults
-    );
+    searchInput.addEventListener("input", updateSearchResults);
 
     searchForm.addEventListener("submit", (event) => {
       event.preventDefault();
@@ -302,5 +236,145 @@ document.addEventListener("DOMContentLoaded", () => {
 
       searchInput.focus();
     });
+  }
+
+  // Latest page rendering
+  const latestFeaturedArticle = document.querySelector(
+    "#latest-featured-article",
+  );
+  const latestStoriesGrid = document.querySelector("#latest-stories-grid");
+
+  if (
+    latestFeaturedArticle &&
+    latestStoriesGrid &&
+    typeof articles !== "undefined"
+  ) {
+    const featuredArticle = articles.find((article) => article.featured);
+    const latestArticles = articles.filter((article) => !article.featured);
+
+    if (featuredArticle) {
+      latestFeaturedArticle.innerHTML = `
+            <a
+                class="latest-featured__image-link"
+                href="article.html"
+                aria-label="Read ${featuredArticle.title}"
+            >
+                <img
+                    class="latest-featured__image"
+                    src="${featuredArticle.image.src}"
+                    alt="${featuredArticle.image.alt}"
+                >
+            </a>
+
+            <div class="latest-featured__content">
+                <a
+                    class="article-category"
+                    href="category.html"
+                >
+                    ${featuredArticle.category.name}
+                </a>
+
+                <h2 class="latest-featured__title">
+                    <a href="article.html">
+                        ${featuredArticle.title}
+                    </a>
+                </h2>
+
+                <p class="latest-featured__excerpt">
+                    ${featuredArticle.excerpt}
+                </p>
+
+                <div class="article-meta">
+                    <span>
+                        ${featuredArticle.author.name}
+                    </span>
+
+                    <span class="article-meta__separator">
+                        ·
+                    </span>
+
+                    <time datetime="${featuredArticle.publishedAt}">
+                        ${new Date(
+                          featuredArticle.publishedAt,
+                        ).toLocaleDateString("en-US", {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                    </time>
+
+                    <span class="article-meta__separator">
+                        ·
+                    </span>
+
+                    <span>
+                        ${featuredArticle.readingTime} min read
+                    </span>
+                </div>
+            </div>
+        `;
+    }
+
+    latestStoriesGrid.innerHTML = latestArticles
+      .map((article) => {
+        const publishedDate = new Date(article.publishedAt).toLocaleDateString(
+          "en-US",
+          {
+            month: "long",
+            day: "numeric",
+            year: "numeric",
+          },
+        );
+
+        return `
+                <article class="article-card">
+                    <a
+                        class="article-card__image-link"
+                        href="article.html"
+                        aria-label="Read ${article.title}"
+                    >
+                        <img
+                            class="article-card__image"
+                            src="${article.image.src}"
+                            alt="${article.image.alt}"
+                        >
+                    </a>
+
+                    <div class="article-card__content">
+                        <a
+                            class="article-category"
+                            href="category.html"
+                        >
+                            ${article.category.name}
+                        </a>
+
+                        <h3 class="article-card__title">
+                            <a href="article.html">
+                                ${article.title}
+                            </a>
+                        </h3>
+
+                        <p class="article-card__excerpt">
+                            ${article.excerpt}
+                        </p>
+
+                        <div class="article-meta">
+                            <time datetime="${article.publishedAt}">
+                                ${publishedDate}
+                            </time>
+
+                            <span class="article-meta__separator">
+                                ·
+                            </span>
+
+                            <span>
+                                ${article.readingTime} min read
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            `;
+      })
+      .join("");
   }
 });
