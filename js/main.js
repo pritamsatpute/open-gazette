@@ -250,7 +250,9 @@ document.addEventListener("DOMContentLoaded", () => {
     typeof articles !== "undefined"
   ) {
     const featuredArticle = articles.find((article) => article.featured);
-    const latestArticles = articles.filter((article) => !article.featured);
+    const latestArticles = articles.filter(
+      (article) => article.latest && !article.featured
+    );
 
     if (featuredArticle) {
       latestFeaturedArticle.innerHTML = `
@@ -374,6 +376,228 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </article>
             `;
+      })
+      .join("");
+  }
+
+  // Trending page rendering
+
+  const trendingFeaturedArticle = document.querySelector(
+    "#trending-featured-article"
+  );
+
+  const trendingList = document.querySelector("#trending-list");
+
+  const trendingMoreGrid = document.querySelector("#trending-more-grid");
+
+  if (
+    trendingFeaturedArticle &&
+    trendingList &&
+    trendingMoreGrid &&
+    typeof articles !== "undefined"
+  ) {
+    const trendingArticles = articles.filter(
+      (article) => article.trending
+    );
+
+    const featuredTrendingArticle = trendingArticles[0];
+
+    const rankedTrendingArticles = trendingArticles.slice(1, 5);
+
+    const moreTrendingArticles = trendingArticles.slice(5);
+
+    // Render featured trending article
+
+    if (featuredTrendingArticle) {
+      const publishedDate = new Date(
+        featuredTrendingArticle.publishedAt
+      ).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      });
+
+      trendingFeaturedArticle.innerHTML = `
+      <div
+        class="trending-rank trending-rank--featured"
+        aria-label="Rank 1"
+      >
+        01
+      </div>
+
+      <a
+        class="trending-featured__image-link"
+        href="article.html?slug=${featuredTrendingArticle.slug}"
+        aria-label="Read ${featuredTrendingArticle.title}"
+      >
+        <img
+          class="trending-featured__image"
+          src="${featuredTrendingArticle.image.src}"
+          alt="${featuredTrendingArticle.image.alt}"
+        />
+      </a>
+
+      <div class="trending-featured__content">
+        <a
+          class="article-category"
+          href="category.html?category=${featuredTrendingArticle.category.slug}"
+        >
+          ${featuredTrendingArticle.category.name}
+        </a>
+
+        <h3 class="trending-featured__title">
+          <a href="article.html?slug=${featuredTrendingArticle.slug}">
+            ${featuredTrendingArticle.title}
+          </a>
+        </h3>
+
+        <p class="trending-featured__excerpt">
+          ${featuredTrendingArticle.excerpt}
+        </p>
+
+        <div class="article-meta">
+          <time datetime="${featuredTrendingArticle.publishedAt}">
+            ${publishedDate}
+          </time>
+
+          <span class="article-meta__separator"> · </span>
+
+          <span>
+            ${featuredTrendingArticle.readingTime} min read
+          </span>
+        </div>
+      </div>
+    `;
+    }
+
+    // Render ranked trending articles
+
+    trendingList.innerHTML = rankedTrendingArticles
+      .map((article, index) => {
+        const rank = String(index + 2).padStart(2, "0");
+
+        const publishedDate = new Date(
+          article.publishedAt
+        ).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        });
+
+        return `
+        <article class="trending-list__item">
+          <div
+            class="trending-rank"
+            aria-label="Rank ${rank}"
+          >
+            ${rank}
+          </div>
+
+          <a
+            class="trending-list__image-link"
+            href="article.html?slug=${article.slug}"
+            aria-label="Read ${article.title}"
+          >
+            <img
+              class="trending-list__image"
+              src="${article.image.src}"
+              alt="${article.image.alt}"
+            />
+          </a>
+
+          <div class="trending-list__content">
+            <a
+              class="article-category"
+              href="category.html?category=${article.category.slug}"
+            >
+              ${article.category.name}
+            </a>
+
+            <h3 class="trending-list__title">
+              <a href="article.html?slug=${article.slug}">
+                ${article.title}
+              </a>
+            </h3>
+
+            <p class="trending-list__excerpt">
+              ${article.excerpt}
+            </p>
+
+            <div class="article-meta">
+              <time datetime="${article.publishedAt}">
+                ${publishedDate}
+              </time>
+
+              <span class="article-meta__separator"> · </span>
+
+              <span>
+                ${article.readingTime} min read
+              </span>
+            </div>
+          </div>
+        </article>
+      `;
+      })
+      .join("");
+
+    // Render more trending articles
+
+    trendingMoreGrid.innerHTML = moreTrendingArticles
+      .map((article) => {
+        const publishedDate = new Date(
+          article.publishedAt
+        ).toLocaleDateString("en-US", {
+          month: "long",
+          day: "numeric",
+          year: "numeric",
+        });
+
+        return `
+        <article class="article-card">
+          <a
+            class="article-card__image-link"
+            href="article.html?slug=${article.slug}"
+            aria-label="Read ${article.title}"
+          >
+            <img
+              class="article-card__image"
+              src="${article.image.src}"
+              alt="${article.image.alt}"
+            />
+          </a>
+
+          <div class="article-card__content">
+            <a
+              class="article-category"
+              href="category.html?category=${article.category.slug}"
+            >
+              ${article.category.name}
+            </a>
+
+            <h3 class="article-card__title">
+              <a href="article.html?slug=${article.slug}">
+                ${article.title}
+              </a>
+            </h3>
+
+            <p class="article-card__excerpt">
+              ${article.excerpt}
+            </p>
+
+            <div class="article-meta">
+              <time datetime="${article.publishedAt}">
+                ${publishedDate}
+              </time>
+
+              <span class="article-meta__separator"> · </span>
+
+              <span>
+                ${article.readingTime} min read
+              </span>
+            </div>
+          </div>
+        </article>
+      `;
       })
       .join("");
   }
